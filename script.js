@@ -20,17 +20,6 @@ function displaySuggestions(suggestions) {
     }
 
     suggestionsContainer.classList.remove('hidden');
-    
-    // Set suggestions position
-    const inputRect = document.getElementById('nameInput').getBoundingClientRect();
-    const viewportHeight = window.innerHeight;
-
-    if (viewportHeight < inputRect.bottom + 150) { // 150px threshold
-        suggestionsContainer.style.top = `${inputRect.top - suggestionsContainer.offsetHeight - 10}px`; // Adjusting above the input
-    } else {
-        suggestionsContainer.style.top = `${inputRect.bottom + window.scrollY + 5}px`; // Position below the input
-    }
-    
     suggestions.forEach(name => {
         const suggestionItem = document.createElement('div');
         suggestionItem.textContent = name;
